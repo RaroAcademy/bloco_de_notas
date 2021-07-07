@@ -1,4 +1,5 @@
 import 'package:animated_card/animated_card.dart';
+import 'package:bloco_de_notas/src/features/home/home_page.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,20 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
+      Future.delayed(Duration(seconds: 2)).then(
+        (value) => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => HomePage(),
+          ),
+        ),
+      );
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,22 +45,31 @@ class _SplashPageState extends State<SplashPage> {
                 children: [
                   Positioned(
                     top: (MediaQuery.of(context).size.height / 2) - 100,
-                    child: Image.asset(
-                      "assets/images/notes_logo.png",
+                    child: Hero(
+                      tag: "notes_logo",
+                      child: Image.asset(
+                        "assets/images/notes_logo.png",
+                      ),
                     ),
                   ),
                   Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          "journal",
-                          style: TextStyle(
-                            fontSize: 72.0,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                            fontFamily: "Montserrat",
-                            letterSpacing: -0.05,
+                        Hero(
+                          tag: "journal",
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Text(
+                              "journal",
+                              style: TextStyle(
+                                fontSize: 72.0,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                                fontFamily: "Montserrat",
+                                letterSpacing: -0.05,
+                              ),
+                            ),
                           ),
                         ),
                         Text(
