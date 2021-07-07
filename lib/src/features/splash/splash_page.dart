@@ -10,10 +10,13 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
-  late final AnimationController _topAnimationController =
-      AnimationController(vsync: this, duration: Duration(seconds: 1));
+  late final AnimationController _topAnimationController = AnimationController(
+    vsync: this,
+    duration: Duration(seconds: 1),
+  );
   late final AnimationController _bottomAnimationController =
       AnimationController(vsync: this, duration: Duration(seconds: 1));
+
   late Animation<double> topAnimation;
   late Animation<double> bottomAnimation;
 
@@ -109,20 +112,20 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               },
             ),
             AnimatedBuilder(
-                animation: _bottomAnimationController,
-                child: Column(
-                  children: [
-                    Image.asset("assets/images/powered_by.png"),
-                    Image.asset("assets/images/raro_academy_logo.png"),
-                  ],
-                ),
-                builder: (BuildContext context, Widget? child) {
-                  return Transform.translate(
-                    offset:
-                        Offset(Alignment.topCenter.x, bottomAnimation.value),
-                    child: child,
-                  );
-                }),
+              animation: _bottomAnimationController,
+              child: Column(
+                children: [
+                  Image.asset("assets/images/powered_by.png"),
+                  Image.asset("assets/images/raro_academy_logo.png"),
+                ],
+              ),
+              builder: (BuildContext context, Widget? child) {
+                return Transform.translate(
+                  offset: Offset(Alignment.topCenter.x, bottomAnimation.value),
+                  child: child,
+                );
+              },
+            ),
           ],
         ),
       ),

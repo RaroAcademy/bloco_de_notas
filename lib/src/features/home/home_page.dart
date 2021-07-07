@@ -33,14 +33,17 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Hero(
                   tag: "text",
-                  child: Text(
-                    "journal",
-                    style: TextStyle(
-                      fontSize: 48.0,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                      fontFamily: "Montserrat",
-                      letterSpacing: -0.05,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: Text(
+                      "journal",
+                      style: TextStyle(
+                        fontSize: 48.0,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        fontFamily: "Montserrat",
+                        letterSpacing: -0.05,
+                      ),
                     ),
                   ),
                 ),
