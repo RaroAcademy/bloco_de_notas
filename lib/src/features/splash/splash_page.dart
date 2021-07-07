@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -19,42 +20,77 @@ class _SplashPageState extends State<SplashPage> {
           gradient: AppColors.blueGradient,
         ),
         child: Stack(
+          alignment: Alignment.center,
           children: [
-            Align(
-              alignment: Alignment(
-                0.0,
-                -0.3,
-              ),
-              child: Image.asset(
-                "assets/images/notes_logo.png",
-              ),
-            ),
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+            AnimatedCard(
+              direction: AnimatedCardDirection.top,
+              duration: Duration(seconds: 1),
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  Text(
-                    "journal",
-                    style: TextStyle(
-                      fontSize: 72.0,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                      fontFamily: "Montserrat",
-                      letterSpacing: -0.05,
+                  Positioned(
+                    top: (MediaQuery.of(context).size.height / 2) - 100,
+                    child: Image.asset(
+                      "assets/images/notes_logo.png",
                     ),
                   ),
-                  Text(
-                    "YOUR ACADEMY'S BEST FRIEND",
-                    style: TextStyle(
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.white,
-                      fontFamily: "Montserrat",
-                      letterSpacing: 0.165,
+                  Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "journal",
+                          style: TextStyle(
+                            fontSize: 72.0,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                            fontFamily: "Montserrat",
+                            letterSpacing: -0.05,
+                          ),
+                        ),
+                        Text(
+                          "YOUR ACADEMY'S BEST FRIEND",
+                          style: TextStyle(
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.white,
+                            fontFamily: "Montserrat",
+                            letterSpacing: 0.165,
+                          ),
+                          textAlign: TextAlign.end,
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.end,
                   ),
                 ],
+              ),
+            ),
+            AnimatedCard(
+              direction: AnimatedCardDirection.bottom,
+              duration: Duration(seconds: 1),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "powered by",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 12.0,
+                        fontStyle: FontStyle.italic,
+                        fontFamily: "Roboto",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Image.asset("assets/images/raro_academy_logo.png"),
+                    SizedBox(height: 40.0)
+                  ],
+                ),
               ),
             ),
           ],
