@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bloco_de_notas/src/features/new_note/new_note.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:bloco_de_notas/src/shared/constants/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -65,22 +66,22 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 24.0,
-                    bottom: 140.0,
                     left: 40.0,
                     right: 40.0,
                   ),
-                  child: Column(
+                  child: Flex(
+                    direction: Axis.vertical,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        "Não importa onde você\nesteja! Guarde suas ideias pra depois ;)",
-                        style: TextStyles.roxo24w400Roboto,
+                      Flexible(
+                        child: Text(
+                          "Não importa onde você esteja! Guarde suas ideias pra depois ;)",
+                          style: TextStyles.roxo24w400Roboto,
+                        ),
                       ),
-                      SizedBox(
-                        height: 24.0,
-                      ),
+                      SizedBox(height: 24.0),
                       Text(
                         "Comece agora a criar as suas notas!",
                         style: TextStyles.ciano16w400Roboto,
@@ -95,6 +96,13 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) => NewNotePage(),
+            ),
+          );
+        },
         child: Container(
           width: 56.0,
           height: 56.0,
