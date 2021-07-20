@@ -48,4 +48,19 @@ class TextStyles {
     fontStyle: FontStyle.italic,
     fontFamily: "Roboto",
   );
+
+  static const TextStyle white24w700Roboto = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.w700,
+    fontSize: 24.0,
+    fontFamily: "Roboto",
+  );
+
+  static const TextStyle white14w400Roboto = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,
+    color: Color.fromRGBO(0, 0, 0, 0.54),
+    fontFamily: "Roboto",
+    letterSpacing: 0.165,
+  );
 }
